@@ -149,4 +149,22 @@ class SearchPresenterTest {
         //Убеждаемся, что ответ от сервера обрабатывается корректно
         verify(viewContract, times(1)).displaySearchResults(searchResults, 101)
     }
+
+    @Test
+    fun `test onAttach success`(){
+
+        presenter.onAttach()
+
+        verify(viewContract, times(1))
+            .displayLoading(show = false)
+    }
+
+    @Test
+    fun `test onDetach success`(){
+
+        presenter.onDetach()
+
+        verify(viewContract, times(1))
+            .displayLoading(show = false)
+    }
 }
